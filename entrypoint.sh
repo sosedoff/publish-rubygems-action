@@ -13,14 +13,14 @@ chmod 0600 ~/.gem/credentials
 set -x
 
 gem_version=$(ruby -r rubygems -e "puts Gem::Specification::load('$(ls *.gemspec)').version")
-echo "::set-output name=gem_version::$gem_version"
+echo "gem_version=$gem_version" >> $GITHUB_OUTPUT
 
 if git fetch origin "refs/tags/v$gem_version" >/dev/null 2>&1
 then
   echo "Tag 'v$gem_version' already exists"
-  echo "::set-output name=new_version::false"
+  echo "new_version=false" >> $GITHUB_OUTPUT
 else
-  echo "::set-output name=new_version::true"
+  echo "new_version=true" >> $GITHUB_OUTPUT
 
   git config user.email "${GIT_EMAIL:-automated@example.com}"
   git config user.name "${GIT_NAME:-Automated Release}"

@@ -10,6 +10,8 @@ This is a GitHub Action written to streamline the Ruby gem publication process. 
 
 `RELEASE_COMMAND` - By default, this will invoke `rake release` to build and publish the gem to Rubygems. Set this environment variable if you have a custom release command to be invoked.
 
+`WORKDIR` - Sets the workdir where bundle and the release will be run
+
 `GIT_EMAIL`/`GIT_NAME` - A git identity you wish the tags to by published by.
 
 # Example

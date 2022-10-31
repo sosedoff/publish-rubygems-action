@@ -25,6 +25,9 @@ else
   git config user.email "${GIT_EMAIL:-automated@example.com}"
   git config user.name "${GIT_NAME:-Automated Release}"
 
+  work_directory="${WORKDIR:-.}"
+  cd $work_directory
+
   echo "Installing dependencies..."
   gem update bundler
   bundle install

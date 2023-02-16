@@ -1,7 +1,7 @@
 FROM ruby:2.7
 
 LABEL "name"="Publish to Rubygems"
-LABEL "version"="2.0.1"
+LABEL "version"="2.0.2"
 
 LABEL "com.github.actions.name"="Publish to Rubygems"
 LABEL "com.github.actions.icon"="upload"

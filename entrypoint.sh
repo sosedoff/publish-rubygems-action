@@ -22,8 +22,9 @@ then
 else
   echo "new_version=true" >> $GITHUB_OUTPUT
 
-  git config user.email "${GIT_EMAIL:-automated@example.com}"
-  git config user.name "${GIT_NAME:-Automated Release}"
+  git config --global --add safe.directory "$GITHUB_WORKSPACE"
+  git config --global user.email "${GIT_EMAIL:-automated@example.com}"
+  git config --global user.name "${GIT_NAME:-Automated Release}"
 
   work_directory="${WORKDIR:-.}"
   cd $work_directory

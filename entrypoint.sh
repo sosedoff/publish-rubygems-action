@@ -12,6 +12,8 @@ EOF
 chmod 0600 ~/.gem/credentials
 set -x
 
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 gem_version=$(ruby -r rubygems -e "puts Gem::Specification::load('$(ls *.gemspec)').version")
 echo "gem_version=$gem_version" >> $GITHUB_OUTPUT
 
@@ -22,7 +24,6 @@ then
 else
   echo "new_version=true" >> $GITHUB_OUTPUT
 
-  git config --global --add safe.directory "$GITHUB_WORKSPACE"
   git config --global user.email "${GIT_EMAIL:-automated@example.com}"
   git config --global user.name "${GIT_NAME:-Automated Release}"
 
